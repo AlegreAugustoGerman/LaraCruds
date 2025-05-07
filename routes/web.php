@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductsController;
 
-
+Route::get('/traer')->name('create');
 Route::get('/', [ProductsController::class, 'home'])->name('welcome'); // Ruta para la página de inicio
 Route::get('/search', [ProductsController::class, 'search'])->name('welcome');
 
