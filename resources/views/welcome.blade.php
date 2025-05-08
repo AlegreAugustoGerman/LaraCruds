@@ -7,7 +7,7 @@
 
 <div class="md:flex md:items-center md:justify-between   ">
     <div class="container flex justify-center mb-4 md:block md:mb-0">
-        <img src="{{ asset('storage/LA ROSCA.svg') }}" alt="Logo Rosca" class="rounded-t-lg object-cover w-full h-16 md:w-auto" style="aspect-ratio:300/200; object-fit: contain;" />
+        <img src="{{ asset('storage/LA ROSCA.svg') }}" alt="Logo Rosca" class="rounded-t-lg object-cover w-full h-16 " style="aspect-ratio:300/200; object-fit: contain;" />
     </div>
 
         <div class="container flex justify-center mb-4 md:justify-start md:mb-0">
@@ -52,24 +52,24 @@
     </section>
 </div>
 
-    <div class="container mx-auto px-4 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 ">
-        @forelse ($products as $product)
-            <div class="rounded-lg border bg-card text-card-foreground    " data-v0-t="card">
-                <img src="{{ asset('storage/' . $product->imagen) }}" {{-- alt="{{ $product->id }}" --}} width="300" height="200" class="rounded-t-lg object-cover w-full h-48" style="aspect-ratio:300/200; object-fit: contain;"/>
-                <div class="p-4">
-                    <h3 class="text-lg font-bold mb-2">{{ $product->nombre }}</h3>
-                    <p class="text-gray-600 mb-4">{{ $product->descripcion }}</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-900 font-bold">${{ $product->precio }}</span>
-                         <p>stock <b>30</b></p>
-                        <a href="{{ route('products.edit', $product->id) }}" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium   ">Editar</a>
-                    </div>
-                </div>
+<div class="container mx-auto px-4 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 ">
+    @forelse ($products as $product)
+        <div class="rounded-lg border bg-card text-card-foreground flex flex-col" data-v0-t="card">
+            <img src="{{ asset('storage/' . $product->imagen) }}" {{-- alt="{{ $product->id }}" --}} width="300" height="200" class="rounded-t-lg object-cover w-full h-48" style="aspect-ratio:300/200; object-fit: contain;"/>
+            <div class="p-4 flex-grow">
+                <h3 class="text-lg font-bold mb-2">{{ $product->nombre }}</h3>
+                <p class="text-gray-600 mb-4">{{ $product->descripcion }}</p>
             </div>
-        @empty
-            <p class="col-span-full text-center py-4">No se encontraron productos.</p>
-        @endforelse
-    </div>
+            <div class="p-4 mt-auto flex items-center justify-between">
+                <span class="text-gray-900 font-bold">${{ $product->precio }}</span>
+                <p>stock <b>{{ $product->cantidad }}</b></p>
+                <a href="{{ route('products.edit', $product->id) }}" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium hover:underline focus:text-gray-500 ">Editar</a>
+            </div>
+        </div>
+    @empty
+        <p class="col-span-full text-center py-4">No se encontraron productos.</p>
+    @endforelse
+</div>
 
     @livewireScripts()
 </body>

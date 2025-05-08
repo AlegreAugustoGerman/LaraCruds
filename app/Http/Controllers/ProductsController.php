@@ -109,6 +109,7 @@ public function store(Request $request)
         'precio' => 'nullable|numeric|between:0,9999999999999.99',
         'descripcion' => 'nullable|string',
         'imagen' => 'nullable|image|max:2048', // Ejemplo de validación para la imagen
+        'cantidad' => 'nullable|numeric|between:0,9999999999999.99',
     ]);
 
     $productData = $request->except('imagen');
@@ -150,6 +151,7 @@ public function update(Request $request, Products $product)
         'precio' => 'nullable|numeric|between:0,9999999999999.99',
         'descripcion' => 'nullable|string',
         'imagen' => 'nullable|image|max:2048', // Ejemplo de validación para la imagen
+        'cantidad' => 'nullable|numeric|between:0,9999999999999.99',
     ]);
 
     $productData = $request->except('imagen');

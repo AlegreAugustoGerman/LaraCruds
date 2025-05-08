@@ -43,6 +43,13 @@
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">cantidad:</label>
+                <input type="number" step="0.00000001" class="form-control" id="cantidad" name="cantidad" value="{{ $product->cantidad }}">
+                @error('cantidad')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Actualizar Producto</button>
             <a href="{{ route('products.index') }}" class="btn btn-secondary">Cancelar</a>
         </form>

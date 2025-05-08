@@ -17,6 +17,7 @@ return new class extends Migration
             $table->double('precio', 15, 8)->nullable(); // Precio con 15 dígitos en total y 8 decimales
             $table->text('descripcion')->nullable();
             $table->binary('imagen')->nullable();
+            $table->double('cantidad', 15, 8)->nullable();
 
 /*
 
